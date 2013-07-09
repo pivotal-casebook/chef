@@ -366,8 +366,6 @@ describe Chef::Provider::Package::Rubygems do
     @events = Chef::EventDispatch::Dispatcher.new
     @run_context = Chef::RunContext.new(@node, {}, @events)
 
-    # We choose detect omnibus via RbConfig::CONFIG['bindir'] in Chef::Provider::Package::Rubygems.new
-    RbConfig::CONFIG.stub!(:[]).with('bindir').and_return("/usr/bin/ruby")
     @provider = Chef::Provider::Package::Rubygems.new(@new_resource, @run_context)
   end
 
